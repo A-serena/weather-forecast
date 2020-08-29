@@ -1,0 +1,43 @@
+{
+    "coord": {
+        "lon": 139.88,
+        "lat": 36.57
+    },
+    "weather": [
+        {
+            "id": 801,
+            "main": "Clouds",
+            "description": "few clouds",
+            "icon": "02n"
+        }
+    ],
+    "base": "stations",
+    "main": {
+        "temp": 30.17,
+        "feels_like": 36.4,
+        "temp_min": 28,
+        "temp_max": 31.67,
+        "pressure": 1013,
+        "humidity": 83
+    },
+    "visibility": 10000,
+    "wind": {
+        "speed": 2.1,
+        "deg": 170
+    },
+    "clouds": {
+        "all": 20
+    },
+    "dt": 1598527615,
+    "sys": {
+        "type": 1,
+        "id": 7957,
+        "country": "JP",
+        "sunrise": 1598472469,
+        "sunset": 1598519800
+    },
+    "timezone": 32400,
+    "id": 1849053,
+    "name": "Utsunomiya",
+    "cod": 200
+}
