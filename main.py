@@ -1,6 +1,6 @@
 #! python3.7
 # -*- coding: utf-8 -*-
-
+import japanize_kivy
 import configparser
 import json
 
@@ -10,6 +10,11 @@ from kivy.config import Config
 from kivy.core.text import DEFAULT_FONT, LabelBase
 from kivy.resources import resource_add_path
 from kivy.uix.boxlayout import BoxLayout
+from kivy.utils import platform
+
+#import fonts_ja
+
+
 # from kivy.uix.widget import Widget
 
 
@@ -18,8 +23,8 @@ Config.set('graphics', 'width', 320)
 Config.set('graphics', 'height', 568)
 Config.set('graphics', 'resizable', 0)
 
-# resource_add_path('./fonts')
-# LabelBase.register(DEFAULT_FONT, './fonts/mplus-2c-regular.ttf')
+resource_add_path('./fonts')
+LabelBase.register(DEFAULT_FONT, 'NotoSansJP-Light.otf')
 
 class Mainscreen(BoxLayout):
     pass
