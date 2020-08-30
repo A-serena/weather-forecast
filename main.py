@@ -1,6 +1,6 @@
 #! python3.7
 # -*- coding: utf-8 -*-
-#import japanize_kivy
+
 import configparser
 import json
 
@@ -11,9 +11,6 @@ from kivy.core.text import DEFAULT_FONT, LabelBase
 from kivy.resources import resource_add_path
 from kivy.uix.boxlayout import BoxLayout
 #from kivy.utils import platform
-
-#import fonts_ja
-
 
 # from kivy.uix.widget import Widget
 
