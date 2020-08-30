@@ -1,4 +1,12 @@
 config.ini
 error.txt
-fonts/NotoSansJP-DemiLight.otf
+
+tenkidata.json
+sd/otehon.py
+sd/test.kv
+sd/mplus-2c-regular.ttf
+.gitignore
+__pycache__/fonts_ja.cpython-37.pyc
+fonts/mplus-2c-regular.ttf
 fonts/NotoSansJP-Light.otf
+fonts/NotoSansJP-DemiLight.otf

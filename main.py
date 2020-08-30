@@ -1,6 +1,6 @@
 #! python3.7
 # -*- coding: utf-8 -*-
-import japanize_kivy
+#import japanize_kivy
 import configparser
 import json
 
@@ -10,7 +10,7 @@ from kivy.config import Config
 from kivy.core.text import DEFAULT_FONT, LabelBase
 from kivy.resources import resource_add_path
 from kivy.uix.boxlayout import BoxLayout
-from kivy.utils import platform
+#from kivy.utils import platform
 
 #import fonts_ja
 
@@ -24,7 +24,7 @@ Config.set('graphics', 'height', 568)
 Config.set('graphics', 'resizable', 0)
 
 resource_add_path('./fonts')
-LabelBase.register(DEFAULT_FONT, 'NotoSansJP-Light.otf')
+LabelBase.register(DEFAULT_FONT, 'fonts\mplus-2c-regular.ttf')
 
 class Mainscreen(BoxLayout):
     pass
@@ -48,7 +48,7 @@ response = requests.get(url)
 data = response.json()
 jsonText = json.dumps(data, indent=4)
 # json の書き込み
-with open(r"C:\Users\User\Documents\py_kivy\TENKIYOHOU\tenkidata.json", "w") as f:
+with open("tenkidata.json", "w") as f:
     json.dump(data, f, ensure_ascii=False, indent=4)
 
 
