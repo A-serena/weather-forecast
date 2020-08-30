@@ -1,4 +1,6 @@
 #! python3.7
+import codecs
+import configparser
 import json
 
 import requests
@@ -25,8 +27,12 @@ class Mainscreen(BoxLayout):
     #    super(TextWidget, self).__init__(**kwargs)
     #    self.text = ''
 
+config_ini = configparser.ConfigParser()
+config_ini.read("config.ini", encoding="utf-8")
+
 city_name = "Utsunomiya"
-API_KEY = "39077ee91b12be0324841b9406a7024b"
+
+API_KEY = config_ini["Key"]["APIKEY"]
 api = "http://api.openweathermap.org/data/2.5/weather?units=metric&q={city}&APPID={key}"
 
 url = api.format(city=city_name, key=API_KEY)
