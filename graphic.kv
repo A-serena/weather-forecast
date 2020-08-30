@@ -1,80 +1,82 @@
-#:kivy 1.1
+#:kivy 1.11
 
-BoxLayout: # background color
-# Change the background image depending onthe weadher.
-# Therefore, this setting will be unnecessary.
-    orientation: 'vertical'
-    canvas.before:
-        Color:
-            rgba: 0.4157 ,0.6627 ,0.9451 ,1
-        Rectangle:
-            pos: self.pos
-            size: self.size
-    
-    BoxLayout:
-        Label:
-            size_hint_x: 0.5
-            text: '1'
-        Label:
-            size_hint_x: 0.5
-            text: '2'
-
-
-    ScrollView:
-        size_hint_y: 10
-        BoxLayout:
-            size_hint_y: None
-            orientation: "vertical"
-            height: self.minimum_height
-
-            Label:
-                size_hint_y: None
-                text: "Nihongo"
-                height: 170
-                
-            Button:
-                size_hint_y: None
-                text: "Explanation"
-                height: 90
+<Mainscreen>
+    font_name: 'msgothic.ttc'
+        BoxLayout: # background color
+        # Change the background image depending onthe weadher.
+        # Therefore, this setting will be unnecessary.
+            orientation: 'vertical'
+            canvas.before:
+                Color:
+                    rgba: 0.4157 ,0.6627 ,0.9451 ,1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            
             BoxLayout:
-                size_hint_y: None
-                height: 80
-                Button:
-                    size_hint_x: 0.4
-                    text: "yesterday"
                 Label:
-                    size_hint_x: 0.3
-                    text: "Today's date"
-                Button:
-                    size_hint_x: 0.4
-                    text: "tomorrow"
-            BoxLayout:
-                size_hint_y: None
-                text: "TENKI ZONE"
-                height: 400
-                Label:
-                    size_hint_x: 0.4
+                    size_hint_x: 0.5
                     text: '1'
                 Label:
-                    size_hint_x: 0.2
+                    size_hint_x: 0.5
                     text: '2'
-                Label:
-                    size_hint_x: 0.4
-                    text: '3'
-            Button:
-                size_hint_y: None
-                text: "4"
-                height: 50
-            Button:
-                size_hint_y: None
-                text: "5"
-                height: 50
-            Label:
-                size_hint_y: None
-                text: "Copyright"
-                height: 20
 
-    #BoxLayout:
-    #    Button:
-    #        text: "3"
+
+            ScrollView:
+                size_hint_y: 10
+                BoxLayout:
+                    size_hint_y: None
+                    orientation: "vertical"
+                    height: self.minimum_height
+
+                    Label:
+                        size_hint_y: None
+                        text: "てすと"
+                        height: 170
+                        
+                    Button:
+                        size_hint_y: None
+                        text: "Explanation"
+                        height: 90
+                    BoxLayout:
+                        size_hint_y: None
+                        height: 80
+                        Button:
+                            size_hint_x: 0.4
+                            text: "yesterday"
+                        Label:
+                            size_hint_x: 0.3
+                            text: "Today's date"
+                        Button:
+                            size_hint_x: 0.4
+                            text: "tomorrow"
+                    BoxLayout:
+                        size_hint_y: None
+                        text: "TENKI ZONE"
+                        height: 400
+                        Label:
+                            size_hint_x: 0.4
+                            text: '1'
+                        Label:
+                            size_hint_x: 0.2
+                            text: '2'
+                        Label:
+                            size_hint_x: 0.4
+                            text: '3'
+                    Button:
+                        size_hint_y: None
+                        text: "4"
+                        height: 50
+                    Button:
+                        size_hint_y: None
+                        text: "5"
+                        height: 50
+                    Label:
+                        size_hint_y: None
+                        text: "Copyright"
+                        height: 20
+
+            #BoxLayout:
+            #    Button:
+            #        text: "3"
 
