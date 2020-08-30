@@ -1,24 +1,22 @@
+#! python3.7
 import json
+
+import requests
+from kivy.app import App
 from kivy.config import Config
+from kivy.core.text import DEFAULT_FONT, LabelBase
+from kivy.resources import resource_add_path
+from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.widget import Widget
+
 Config.set('graphics', 'fullscreen', 0)
 Config.set('graphics', 'width', 320)
 Config.set('graphics', 'height', 568)
 Config.set('graphics', 'resizable', 0)
 
-from kivy.app import App
-from kivy.uix.boxlayout import BoxLayout
-from kivy.uix.widget import Widget
-from kivy.core.text import LabelBase, DEFAULT_FONT
-from kivy.resources import resource_add_path
-import requests
 
 resource_add_path('./fonts')
 LabelBase.register(DEFAULT_FONT, 'mplus-2c-regular.ttf')
-
-city_name = "Utsunomiya"
-API_KEY = "39077ee91b12be0324841b9406a7024b"
-api = "http://api.openweathermap.org/data/2.5/weather?units=metric&q={city}&APPID={key}"
-
 
 class Mainscreen(BoxLayout):
     pass
@@ -27,6 +25,9 @@ class Mainscreen(BoxLayout):
     #    super(TextWidget, self).__init__(**kwargs)
     #    self.text = ''
 
+city_name = "Utsunomiya"
+API_KEY = "39077ee91b12be0324841b9406a7024b"
+api = "http://api.openweathermap.org/data/2.5/weather?units=metric&q={city}&APPID={key}"
 
 url = api.format(city=city_name, key=API_KEY)
 print(url)
