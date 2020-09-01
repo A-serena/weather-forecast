@@ -10,6 +10,7 @@ from kivy.config import Config
 from kivy.core.text import DEFAULT_FONT, LabelBase
 from kivy.resources import resource_add_path
 from kivy.uix.boxlayout import BoxLayout
+# import keisan
 #from kivy.utils import platform
 
 # from kivy.uix.widget import Widget
@@ -21,7 +22,7 @@ Config.set('graphics', 'height', 568)
 Config.set('graphics', 'resizable', 0)
 
 resource_add_path('./fonts')
-LabelBase.register(DEFAULT_FONT, 'fonts\mplus-2c-regular.ttf')
+LabelBase.register(DEFAULT_FONT, r'fonts\mplus-2c-regular.ttf')
 
 class Mainscreen(BoxLayout):
     pass
@@ -33,26 +34,36 @@ class Mainscreen(BoxLayout):
 config_ini = configparser.ConfigParser()
 config_ini.read("config.ini", encoding="utf-8")
 
-city_name = "Utsunomiya"
 
 API_KEY = config_ini["Key"]["APIKEY"]
-api = "http://api.openweathermap.org/data/2.5/weather?units=metric&q={city}&APPID={key}"
+ZIP = config_ini["Zip"]["ZIP"]
+API_URL = "http://api.openweathermap.org/data/2.5/forecast?zip={0},jp&units=metric&APPID={1}"
 
-url = api.format(city=city_name, key=API_KEY)
-print(url)
+url = API_URL.format(ZIP, API_KEY)
 
-response = requests.get(url)
-data = response.json()
-jsonText = json.dumps(data, indent=4)
-# json の書き込み
-with open("tenkidata.json", "w") as f:
-    json.dump(data, f, ensure_ascii=False, indent=4)
+def getWeatherForecast():
+    response = requests.get(url)
+    # forecastData = json.loads(response.text)
+    data = response.json()
+
+    # json の書き込み
+    with open("tenkidata.json", "w") as f:
+        json.dump(data, f, ensure_ascii=False, indent=4)
+    with open("tenkidata.json", "r") as f:
+        jsn = json.load(f)
+    
+    print(jsn)
+    print("URLです。" + url)
+
+
+
 
 
 class GraphicApp(App):
     def build(self):
         self.title = 'てんきよほう'
         return Mainscreen()
+        getWeatherForecast()
 
 if __name__ == "__main__":
     GraphicApp().run()
