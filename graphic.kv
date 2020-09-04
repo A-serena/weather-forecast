@@ -1,9 +1,10 @@
 #:kivy 1.11
 
 <Mainscreen>    
-    BoxLayout: # background color
-    # Change the background image depending onthe weadher.
-    # Therefore, this setting will be unnecessary.
+# background color
+# Change the background image depending onthe weadher.
+# Therefore, this setting will be unnecessary.
+    BoxLayout:
         orientation: 'vertical'
         canvas.before:
             Color:
@@ -31,7 +32,7 @@
                 Label:
                     font_name: './fonts/NotoSansJP-Light.otf'
                     size_hint_y: None
-                    text: "nihongo"
+                    text: root.str_src
                     height: 170
                     
                 Button:

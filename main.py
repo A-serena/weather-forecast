@@ -13,12 +13,10 @@ from kivy.app import App
 from kivy.config import Config
 from kivy.core.text import DEFAULT_FONT, LabelBase
 from kivy.resources import resource_add_path
-from kivy.uix.boxlayout import BoxLayout
-
-# import keisan
-#from kivy.utils import platform
-
 # from kivy.uix.widget import Widget
+# from kivy.uix.label import Label
+from kivy.uix.boxlayout import BoxLayout
+from kivy.properties import StringProperty
 
 Config.set('graphics', 'fullscreen', 0)
 Config.set('graphics', 'width', 320)
@@ -54,8 +52,7 @@ def get_weatherworecast():
     print(jsn)
     print("URLです。" + url)
 
-def time_sched():
-    schedule.every().day.at("10:00").do(get_weatherworecast)
+schedule.every().day.at("21:14").do(get_weatherworecast)
 
 def select_word():
     """
@@ -66,12 +63,28 @@ def select_word():
 
 
 class Mainscreen(BoxLayout):
-    pass
+    str_src = StringProperty('')
+    def __init__(self, **kwargs):
+        super(Mainscreen, self).__init__(**kwargs)
+        with open("tenkidata.json", "r") as f:
+            jsn = json.load(f)
+        self.str_src = str(jsn["list"][0]["weather"][0]["description"])
+
+"""class Message(Label):
+    def __init__(self, **kwargs):
+        super(Message, self).__init__(**kwargs)
+        with open("tenkidata.json", "r") as f:
+            jsn = json.load(f)
+        self.text = str(jsn["list"][0]["weather"][0]["description"])
+"""
 
 class GraphicApp(App):
-    def build(self):
+    def __init__(self, **kwargs):
+        super(GraphicApp, self).__init__(**kwargs)
         self.title = 'てんきよほう'
+    def build(self):
         return Mainscreen()
 
 if __name__ == "__main__":
-    GraphicApp().run()
+    app = GraphicApp()
+    app.run()
