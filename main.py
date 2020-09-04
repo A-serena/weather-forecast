@@ -1,6 +1,9 @@
 #! python3.7
 # -*- coding: utf-8 -*-
-
+"""
+メイン画面の設置、INI ファイルを参照しての API 呼び出し ～ JSON ファイルへの書き込み、
+何時に処理を回すかの設定(動作未チェック)(2020/09/04時点)
+"""
 import configparser
 import json
 
@@ -17,13 +20,12 @@ from kivy.uix.boxlayout import BoxLayout
 
 # from kivy.uix.widget import Widget
 
-
 Config.set('graphics', 'fullscreen', 0)
 Config.set('graphics', 'width', 320)
 Config.set('graphics', 'height', 568)
 Config.set('graphics', 'resizable', 0)
 
-resource_add_path('./fonts')
+resource_add_path(r'.\fonts')
 LabelBase.register(DEFAULT_FONT, r'fonts\mplus-2c-regular.ttf')
 
 config_ini = configparser.ConfigParser()
@@ -57,8 +59,9 @@ def time_sched():
 
 def select_word():
     """
-    ここに言葉を選ぶためのチャートを入れるか、 import して入れるか、
-    この関数は無くしてimportしたやつを直接どこかに書くか
+    ここに言葉を選ぶためのチャートプログラムを入れるか、 
+    別ファイルに書いたものをimport して入れるか
+    
     """
 
 
